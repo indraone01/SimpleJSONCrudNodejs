@@ -1,2 +1,1 @@
-# SimpleCrudNodejs
-Practice to implemented CRUD in Node via local storage such as json, and into DB with MongoDB.
+## Practice to implemented CRUD in Node via local storage such as json, and into DB with MongoDB.
