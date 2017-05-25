@@ -1,0 +1,19 @@
+{
+    "name": "nodeexpresslearn1",
+    "version": "1.0.0",
+    "description": "exploring the express 01",
+    "main": "index.js",
+    "dependencies": {
+        "express": "^4.15.2",
+        "node": "^0.0.0"
+    },
+    "devDependencies": {
+        "nodemon": "^1.11.0"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon index.js"
+    },
+    "author": "andri indrawan",
+    "license": "ISC"
+}

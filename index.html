@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/form.css">
+    <title>MY CONTACT LIST</title>
+</head>
+
+<body>
+    <div class="menutab">
+        <button id="homemenu" class="tablinks" onclick="openTab(event, 'ContactEntry')">Home</button>
+        <button class="tablinks" onclick="openTab(event, 'ContactList')">List</button>
+        <button class="tablinks" onclick="openTab(event, 'SendEmail')">Message</button>
+    </div>
+    <div id="ContactEntry" class="menutabcontent">
+        <span onclick="this.parentElement.style.display='none'" class="menutabclosetopright">x</span>
+        <h3>Contact Entry</h3>
+        <p>
+            <div class="div">
+                <form action="/contact/add" method="POST">
+                    <input class="input" type="text" placeholder="name" name="name">
+                    <input class="input" type="text" placeholder="email" name="email">
+                    <input class="submit" type="submit" value="Submit">
+                </form>
+            </div>
+        </p>
+        <p>
+            <table style="width:100%" cellspacing=0 collpadding=0 border=0>
+                <tr>
+                    <td style="width:70%"><input class="search" type="text" name="search" placeholder="Search.."></td>
+                    <td style="width:400px;text-align:right">
+                        <div class="pagination">
+                            <a href="#">&laquo;</a>
+                            <a href="#">1</a>
+                            <a class="active" href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                            <a href="#">6</a>
+                            <a href="#">&raquo;</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <table class="table">
+                <tbody>
+                    <thead>
+                        <tr>
+                            <th style="width:20px">ID</th>
+                            <th style="width:50%">Name</th>
+                            <th style="width:50%">Email</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>1</td>
+                        <td>Andri</td>
+                        <td>andri@testmail.com</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Indrawan</td>
+                        <td>indrawan@testmail.com</td>
+                    </tr>
+                    <tr>
+                    </tr>
+                </tbody>
+            </table>
+            <table style="width:100%" cellspacing=0 collpadding=0 border=0>
+                <tr>
+                    <td style="width:70%">&nbsp;</td>
+                    <td style="width:400px;text-align:right">
+                        <div class="pagination">
+                            <a href="#">&laquo;</a>
+                            <a href="#">1</a>
+                            <a class="active" href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                            <a href="#">6</a>
+                            <a href="#">&raquo;</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </p>
+    </div>
+
+    <div id="ContactList" class="menutabcontent">
+        <span onclick="this.parentElement.style.display='none'" class="menutabclosetopright">x</span>
+        <h3>Contact List</h3>
+        <p>Contact List.</p>
+    </div>
+
+    <div id="SendEmail" class="menutabcontent">
+        <span onclick="this.parentElement.style.display='none'" class="menutabclosetopright">x</span>
+        <h3>Send Email</h3>
+        <p>Send Email.</p>
+    </div>
+    <h1></h1>
+</body>
+
+</html>
+<script type="text/javascript">
+    function openTab(evt, TName) {
+        var i, menutabcontent, tablinks;
+        menutabcontent = document.getElementsByClassName("menutabcontent");
+        for (i = 0; i < menutabcontent.length; i++) {
+            menutabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(TName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    document.getElementById("homemenu").click();
+</script>
