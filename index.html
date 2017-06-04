@@ -29,7 +29,7 @@
             <table style="width:100%" cellspacing=0 collpadding=0 border=0>
                 <tr>
                     <td style="width:70%"><input class="search" type="text" name="search" placeholder="Search.."></td>
-                    <td style="width:400px;text-align:right">
+                    <td style="width:400px;text-align:right;">
                         <div class="pagination">
                             <a href="#">&laquo;</a>
                             <a href="#">1</a>
@@ -110,10 +110,10 @@
         }
         tablinks = document.getElementsByClassName("tablinks");
         for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
+            tablinks[i].className = tablinks[i].className.replace("active", "");
         }
         document.getElementById(TName).style.display = "block";
-        evt.currentTarget.className += " active";
+        evt.currentTarget.className += "active";
     }
     document.getElementById("homemenu").click();
 </script>

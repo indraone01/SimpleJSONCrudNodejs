@@ -83,27 +83,33 @@ body {
     }
 }
 
-.table {
+.table,
+.tablelist {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
 .table td,
-.table th {
+.tablelist td,
+.table th,
+.tablelist th {
     border: 1px solid #ddd;
     padding: 8px;
 }
 
-.table tr:nth-child(even) {
+.table tr:nth-child(even),
+.tablelist tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-.table tr:hover {
+.table tr:hover,
+.tablelist tr:hover {
     background-color: #ddd;
 }
 
-.table th {
+.table th,
+.tablelist th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
