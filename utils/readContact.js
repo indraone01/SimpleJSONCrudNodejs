@@ -1,6 +1,7 @@
 const fs = require('fs');
 
 module.exports = (sourcePath, callback) => {
+    var record = new Array();
     // made read the stream of json per line
     var readLine = require('readline').createInterface({
         input: fs.createReadStream(sourcePath, { flags: 'r', encoding: 'utf-8' }),
@@ -22,8 +23,6 @@ module.exports = (sourcePath, callback) => {
     }).on('close', () => {
         callback(record);
     });
-
-    var record = new Array();
 
     function parseProcessing(line) {
         try {

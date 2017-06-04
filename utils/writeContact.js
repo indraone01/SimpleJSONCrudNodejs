@@ -3,6 +3,8 @@ const readline = require('./readContact.js');
 
 module.exports = (sourcePath, sourceDest) => {
     var newcontact = new Array();
+    var writePath = sourceDest;
+    writePath = './json/test.json'; // for test purpose only
     var buffer = '';
     var stream = fs.createReadStream(sourcePath, { flags: 'r', encoding: 'utf-8' });
     stream.on('data', (chunk) => {
@@ -57,13 +59,27 @@ module.exports = (sourcePath, sourceDest) => {
                         isupdate = 1;
                     }
                 });
-                console.log(isupdate);
+                //console.log(isupdate);
                 if (isupdate == 0) {
                     currcontact[currcontact.length] = newcontact[idx];
                 }
             });
             //console.log(newcontact);
-            console.log(currcontact);
+            //console.log(JSON.stringify(currcontact));
+
+            //write the new data contact into contact.json; re-write and append foreach row;
+            fs.createWriteStream(writePath, { flags: 'w', encoding: 'utf-8' }).write("[\n");
+            currcontact.forEach((currobj, curridx, currarr) => {
+                //console.log(JSON.stringify(currobj));
+                if (curridx == currcontact.length - 1) {
+                    fs.createWriteStream(writePath, { flags: 'a+', encoding: 'utf-8' })
+                        .write(JSON.stringify(currobj) + '\n');
+                } else {
+                    fs.createWriteStream(writePath, { flags: 'a+', encoding: 'utf-8' })
+                        .write(JSON.stringify(currobj) + ',' + '\n');
+                }
+            });
+            fs.createWriteStream(writePath, { flags: 'a', encoding: 'utf-8' }).write("]");
         });
     }
 
@@ -79,5 +95,13 @@ module.exports = (sourcePath, sourceDest) => {
             newcontact[newcontact.length] = obj;
         }
     }
+
+    /* fs.createWriteStream('./json/test.json', { flags: 'w', encoding: 'utf-8' }).write("[\n");
+    currcontact.forEach((currobj, curridx, currarr) => {
+        //console.log(obj.id);
+        fs.createWriteStream('./json/test.json', { flags: 'a', encoding: 'utf-8' })
+            .write(JSON.stringify(currobj) + ',' + '\n');
+    });
+    fs.createWriteStream('./json/test.json', { flags: 'a', encoding: 'utf-8' }).write("]");*/
 
 }
