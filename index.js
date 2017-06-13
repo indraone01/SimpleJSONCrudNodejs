@@ -61,8 +61,8 @@ app.get('/scripts/form.js', (req, res) => {
     fs.readFile(path.join(__dirname, req.url), (err, file) => {
         res.writeHead(200, { 'Content-Type': 'text/javascript' });
         res.write('var tablinks=' + JSON.stringify(tablinks) + ';\n');
-        res.write('var contact=' + JSON.stringify(contact) + ';\n');
-        res.write('var contactlist=' + JSON.stringify(contact) + ';\n');
+        res.write('var contactjson=' + JSON.stringify(contact) + ';\n');
+        res.write('var contactlistjson=' + JSON.stringify(contact) + ';\n');
         (err) ? console.log(err): res.end(file);
     });
 });

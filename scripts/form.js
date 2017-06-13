@@ -47,35 +47,38 @@ function openTab(evt) {
     evt.currentTarget.className += 'active';
 }
 
+var contact = contactjson,
+    contactlist = contactlistjson;
+
 function searchItems(str, elmname) {
     var result = [];
     if (elmname === 'searchhome') {
-        return contact.filter((el) => {
+        contact.filter((el) => {
             if (el.name.toLowerCase().indexOf(str.toLowerCase()) > -1 ||
                 el.email.toLowerCase().indexOf(str.toLowerCase()) > -1) {
                 //console.log(el + '_' + str);
                 result.push(el);
                 //console.log(result);
-                setContactEntry(result);
             }
         });
+        (document.getElementsByName(elmname)[0].value == '') ? contact = contactjson: contact = result;
+        setContactEntry(contact);
     } else if (elmname === 'searchlist') {
-        console.log(tablelistproperties);
-        return contactlist.filter((el) => {
+        contactlist.filter((el) => {
             if (el.name.toLowerCase().indexOf(str.toLowerCase()) > -1 ||
                 el.email.toLowerCase().indexOf(str.toLowerCase()) > -1) {
                 //console.log(el + '_' + str);
                 result.push(el);
                 //console.log(result);
-                setContactList(result);
             }
         });
+        (document.getElementsByName(elmname)[0].value == '') ? contactlist = contactlistjson: contactlist = result;
+        setContactList(contactlist);
     }
 
 }
 
-function sortItems(classname, contact) {
-    var arr = contact;
+function sortItems(classname) {
     switch (classname) {
         case 'coltableid':
             //console.log(tableproperties['header']);
@@ -85,13 +88,13 @@ function sortItems(classname, contact) {
                     //console.log(element.name);
                     if (element.order == 'desc') {
                         element.order = 'asc';
-                        setContactEntry(arr = contact.sort((a, b) => {
+                        setContactEntry(contact.sort((a, b) => {
                             return a.id - b.id;
                         }));
                     } else if (element.order == '' ||
                         element.order == 'asc') {
                         element.order = 'desc';
-                        setContactEntry(arr.sort((a, b) => {
+                        setContactEntry(contact.sort((a, b) => {
                             return b.id - a.id;
                         }));
                     }
@@ -107,7 +110,7 @@ function sortItems(classname, contact) {
                     //console.log(element.name);
                     if (element.order == 'desc') {
                         element.order = 'asc';
-                        setContactEntry(arr = contact.sort((a, b) => {
+                        setContactEntry(contact.sort((a, b) => {
                             if (a.name.toLowerCase() < b.name.toLowerCase()) {
                                 return -1;
                             } else if (a.name.toLowerCase() > b.name.toLowerCase()) {
@@ -119,7 +122,7 @@ function sortItems(classname, contact) {
                     } else if (element.order == '' ||
                         element.order == 'asc') {
                         element.order = 'desc';
-                        setContactEntry(arr.sort((a, b) => {
+                        setContactEntry(contact.sort((a, b) => {
                             if (a.name.toLowerCase() < b.name.toLowerCase()) {
                                 return 1;
                             } else if (a.name.toLowerCase() > b.name.toLowerCase()) {
@@ -141,7 +144,7 @@ function sortItems(classname, contact) {
                     //console.log(element.name);
                     if (element.order == 'desc') {
                         element.order = 'asc';
-                        setContactEntry(arr = contact.sort((a, b) => {
+                        setContactEntry(contact.sort((a, b) => {
                             if (a.email.toLowerCase() < b.email.toLowerCase()) {
                                 return -1;
                             } else if (a.email.toLowerCase() > b.email.toLowerCase()) {
@@ -153,7 +156,7 @@ function sortItems(classname, contact) {
                     } else if (element.order == '' ||
                         element.order == 'asc') {
                         element.order = 'desc';
-                        setContactEntry(arr.sort((a, b) => {
+                        setContactEntry(contact.sort((a, b) => {
                             if (a.email.toLowerCase() < b.email.toLowerCase()) {
                                 return 1;
                             } else if (a.email.toLowerCase() > b.email.toLowerCase()) {
@@ -175,13 +178,13 @@ function sortItems(classname, contact) {
                     //console.log(element.name);
                     if (element.order == 'desc') {
                         element.order = 'asc';
-                        setContactList(arr = contact.sort((a, b) => {
+                        setContactList(contactlist.sort((a, b) => {
                             return a.id - b.id;
                         }));
                     } else if (element.order == '' ||
                         element.order == 'asc') {
                         element.order = 'desc';
-                        setContactList(arr.sort((a, b) => {
+                        setContactList(contactlist.sort((a, b) => {
                             return b.id - a.id;
                         }));
                     }
@@ -197,7 +200,7 @@ function sortItems(classname, contact) {
                     //console.log(element.name);
                     if (element.order == 'desc') {
                         element.order = 'asc';
-                        setContactList(arr = contact.sort((a, b) => {
+                        setContactList(contactlist.sort((a, b) => {
                             if (a.name.toLowerCase() < b.name.toLowerCase()) {
                                 return -1;
                             } else if (a.name.toLowerCase() > b.name.toLowerCase()) {
@@ -209,7 +212,7 @@ function sortItems(classname, contact) {
                     } else if (element.order == '' ||
                         element.order == 'asc') {
                         element.order = 'desc';
-                        setContactList(arr.sort((a, b) => {
+                        setContactList(contactlist.sort((a, b) => {
                             if (a.name.toLowerCase() < b.name.toLowerCase()) {
                                 return 1;
                             } else if (a.name.toLowerCase() > b.name.toLowerCase()) {
@@ -231,7 +234,7 @@ function sortItems(classname, contact) {
                     //console.log(element.name);
                     if (element.order == 'desc') {
                         element.order = 'asc';
-                        setContactList(arr = contact.sort((a, b) => {
+                        setContactList(contactlist.sort((a, b) => {
                             if (a.email.toLowerCase() < b.email.toLowerCase()) {
                                 return -1;
                             } else if (a.email.toLowerCase() > b.email.toLowerCase()) {
@@ -243,7 +246,7 @@ function sortItems(classname, contact) {
                     } else if (element.order == '' ||
                         element.order == 'asc') {
                         element.order = 'desc';
-                        setContactList(arr.sort((a, b) => {
+                        setContactList(contactlist.sort((a, b) => {
                             if (a.email.toLowerCase() < b.email.toLowerCase()) {
                                 return 1;
                             } else if (a.email.toLowerCase() > b.email.toLowerCase()) {
@@ -285,21 +288,22 @@ function setContactEntry(contact) {
 
     var tableid = document.getElementsByClassName('coltableid')[0];
     tableid.addEventListener('click', (evt) => {
-        sortItems(evt.target.className, contact);
+        sortItems(evt.target.className);
     }, false);
     var tablename = document.getElementsByClassName('coltablename')[0];
     tablename.addEventListener('click', (evt) => {
-        sortItems(evt.target.className, contact);
+        sortItems(evt.target.className);
     }, false);
     var tableemail = document.getElementsByClassName('coltableemail')[0];
     tableemail.addEventListener('click', (evt) => {
-        sortItems(evt.target.className, contact);
+        sortItems(evt.target.className);
     }, false);
 }
 
 function setContactList(contactlist) {
     var table = document.getElementsByClassName('tablelist')[0];
     var rows = '<thead><tr><th class="coltablelistid" style="width:20px">ID</th><th class="coltablelistname" style="width:50%">Name</th><th class="coltablelistemail" style="width:50%">Email</th></tr ></thead >';
+    setPaginationList(contactlist);
 
     if (contactlist && contactlist != '') {
         var limits = tablelistproperties.limitrows;
@@ -321,18 +325,16 @@ function setContactList(contactlist) {
 
     var tablelistid = document.getElementsByClassName('coltablelistid')[0];
     tablelistid.addEventListener('click', (evt) => {
-        sortItems(evt.target.className, contactlist);
+        sortItems(evt.target.className);
     }, false);
     var tablelistname = document.getElementsByClassName('coltablelistname')[0];
     tablelistname.addEventListener('click', (evt) => {
-        sortItems(evt.target.className, contactlist);
+        sortItems(evt.target.className);
     }, false);
     var tablelistemail = document.getElementsByClassName('coltablelistemail')[0];
     tablelistemail.addEventListener('click', (evt) => {
-        sortItems(evt.target.className, contactlist);
+        sortItems(evt.target.className);
     }, false);
-
-    setPaginationList(contactlist);
 }
 
 function setLimitList(limit, elmname) {
@@ -341,11 +343,7 @@ function setLimitList(limit, elmname) {
         setContactEntry(contact);
     } else if (elmname === 'limitrowslist') {
         tablelistproperties.limitrows = limit;
-        if (document.getElementsByName('searchlist')[0].value != '') {
-            searchItems(document.getElementsByName('searchlist')[0].value, 'searchlist');
-        } else {
-            setContactList(contactlist);
-        }
+        setContactList(contactlist);
     }
 }
 
@@ -358,17 +356,16 @@ function goPage(currPage) {
         tablelistproperties.start = tablelistproperties.limitrows * (currPage - 1);
         tablelistproperties.page = currPage;
     }
-    if (document.getElementsByName('searchlist')[0].value != '') {
-        searchItems(document.getElementsByName('searchlist')[0].value, 'searchlist');
-    } else {
-        setContactList(contactlist);
-    }
+    setContactList(contactlist);
 }
 
 function setPaginationList(contactlist) {
     var pagination = document.querySelectorAll('.pagination');
     var page = Math.ceil(contactlist.length / tablelistproperties.limitrows);
-    (page == contactlist.length) ? page = 1: '';
+    if (page == 1) {
+        tablelistproperties.start = 0;
+        tablelistproperties.page = 1;
+    }
     pagination.forEach(function(element, idx, arr) {
         element.innerHTML = '<a href="javascript:void(0);" onclick="goPage(0);">&laquo;</a>';
         for (var i = 1; i <= page; i++) {
@@ -381,6 +378,7 @@ function setPaginationList(contactlist) {
         element.innerHTML = element.innerHTML + '<a href="javascript:void(0);" onclick="goPage(' + page + ');">&raquo;</a>';
 
     }, this);
+    //console.log(tablelistproperties.page + '_' + contactlist.length);
 }
 
 onload = function() {
@@ -417,5 +415,5 @@ onload = function() {
     }, this);
 
     setPaginationList(contactlist);
-    document.getElementsByClassName('coltableid')[0].click();
+    sortItems('coltableid');
 }
