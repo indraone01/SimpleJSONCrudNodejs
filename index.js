@@ -44,24 +44,25 @@ app.get('/', (request, response) => {
 });
 
 app.get('/images/toolbar_find.png', (req, res) => {
-    fs.readFile(__dirname + req.url, (err, file) => {
+    fs.readFile(path.join(__dirname, req.url), (err, file) => {
         res.writeHead(200, { 'Content-Type': 'image/png' });
         (err) ? console.log(err): res.end(file);
     });
 });
 
 app.get('/css/form.css', (req, res) => {
-    fs.readFile(__dirname + req.url, (err, file) => {
+    fs.readFile(path.join(__dirname, req.url), (err, file) => {
         res.writeHead(200, { 'Content-Type': 'text/css' });
         (err) ? console.log(err): res.end(file);
     });
 });
 
 app.get('/scripts/form.js', (req, res) => {
-    fs.readFile(__dirname + req.url, (err, file) => {
+    fs.readFile(path.join(__dirname, req.url), (err, file) => {
         res.writeHead(200, { 'Content-Type': 'text/javascript' });
         res.write('var tablinks=' + JSON.stringify(tablinks) + ';\n');
         res.write('var contact=' + JSON.stringify(contact) + ';\n');
+        res.write('var contactlist=' + JSON.stringify(contact) + ';\n');
         (err) ? console.log(err): res.end(file);
     });
 });

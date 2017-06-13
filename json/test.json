@@ -1,15 +1,15 @@
 [
-{"id":"1","name":"Andri","email":"andri@testmail.com"},
-{"id":"2","name":"Indrawan","email":"indrawan@testmail.com"},
-{"id":"3","name":"Budi","email":"Budi@testmail.com"},
-{"id":"4","name":"Iwan","email":"Iwan@testmail.com"},
-{"id":"5","name":"Bambang","email":"Bambang@testmail.com"},
-{"id":"6","name":"Kurnia","email":"Kurnia@testmail.com"},
-{"id":"7","name":"Sandi","email":"Sandi@testmail.com"},
-{"id":"8","name":"Atmajaya","email":"Atmajaya@testmail.com"},
-{"id":"9","name":"Kurniawan","email":"Kurniawan@testmail.com"},
-{"id":"10","name":"Dermawan","email":"Dermawan@testmail.com"},
-{"id":"11","name":"Joko","email":"Joko@testmail.com"},
-{"id":"12","name":"Widodo","email":"Widodo@testmail.com"},
-{"id":"13","name":"Rizieq","email":"sihabe9@testmail.com"}
+    { "id": 1, "name": "Andri", "email": "andri@testmail.com" },
+    { "id": 2, "name": "Indrawan", "email": "indrawan@testmail.com" },
+    { "id": 3, "name": "Budi", "email": "Budi@testmail.com" },
+    { "id": 4, "name": "Iwan", "email": "Iwan@testmail.com" },
+    { "id": 5, "name": "Bambang", "email": "Bambang@testmail.com" },
+    { "id": 6, "name": "Kurnia", "email": "Kurnia@testmail.com" },
+    { "id": 7, "name": "Sandi", "email": "Sandi@testmail.com" },
+    { "id": 8, "name": "Atmajaya", "email": "Atmajaya@testmail.com" },
+    { "id": 9, "name": "Kurniawan", "email": "Kurniawan@testmail.com" },
+    { "id": 10, "name": "Dermawan", "email": "Dermawan@testmail.com" },
+    { "id": 11, "name": "Joko", "email": "Joko@testmail.com" },
+    { "id": 12, "name": "Widodo", "email": "Widodo@testmail.com" },
+    { "id": 13, "name": "Rizieq", "email": "sihabe9@testmail.com" }
 ]
