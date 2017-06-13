@@ -31,6 +31,9 @@ var tableproperties = {
         "page": 1
     }
 
+var contact = contactjson,
+    contactlist = contactlistjson;
+
 function openTab(evt) {
     var i, menutabcontent, tablinks, nodelinks;
     menutabcontent = document.getElementsByClassName('menutabcontent');
@@ -46,9 +49,6 @@ function openTab(evt) {
     document.getElementsByClassName('menutabcontent')[nodelinks.indexOf(evt.currentTarget)].style.display = 'block';
     evt.currentTarget.className += 'active';
 }
-
-var contact = contactjson,
-    contactlist = contactlistjson;
 
 function searchItems(str, elmname) {
     var result = [];
