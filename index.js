@@ -1,5 +1,6 @@
 const app = require('express')();
 const fs = require('fs');
+const bodyParser = require('body-parser');
 const readjson = require('./utils/readContact.js');
 const favicon = require('serve-favicon');
 const path = require('path');
@@ -10,6 +11,13 @@ readjson('./json/contact.json', (result) => {
 });
 
 app.use(favicon(path.join(__dirname, 'images', 'favicon.ico')));
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.post('/add', (request, response) => {
+    //response.send(JSON.stringify(request.body));
+    response.redirect('/');
+    response.status(201);
+});
 
 app.get('/', (request, response) => {
     response.writeHead(200, { 'Content-Type': 'text/html' });

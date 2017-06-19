@@ -96,12 +96,4 @@ module.exports = (sourcePath, sourceDest) => {
         }
     }
 
-    /* fs.createWriteStream('./json/test.json', { flags: 'w', encoding: 'utf-8' }).write("[\n");
-    currcontact.forEach((currobj, curridx, currarr) => {
-        //console.log(obj.id);
-        fs.createWriteStream('./json/test.json', { flags: 'a', encoding: 'utf-8' })
-            .write(JSON.stringify(currobj) + ',' + '\n');
-    });
-    fs.createWriteStream('./json/test.json', { flags: 'a', encoding: 'utf-8' }).write("]");*/
-
 }
