@@ -1,22 +1,29 @@
 {
-  "name": "nodeexpresslearn1",
-  "version": "1.0.0",
-  "description": "exploring the express 01",
-  "main": "index.js",
-  "dependencies": {
-    "body-parser": "^1.17.2",
-    "express": "^4.15.2",
-    "jade": "^1.11.0",
-    "node": "^0.0.0",
-    "serve-favicon": "^2.4.3"
-  },
-  "devDependencies": {
-    "nodemon": "^1.11.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
-  },
-  "author": "andri indrawan",
-  "license": "ISC"
+    "name": "nodeexpresslearn1",
+    "version": "1.0.0",
+    "description": "exploring the express 01",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/indraone01/SimpleJSONCrudNodejs.git"
+    },
+    "main": "index.js",
+    "dependencies": {
+        "body-parser": "^1.17.2",
+        "express": "^4.15.2",
+        "express-myconnection": "^1.0.4",
+        "express-validator": "^2.21.0",
+        "jade": "^1.11.0",
+        "mysql": "^2.13.0",
+        "node": "^0.0.0",
+        "serve-favicon": "^2.4.3"
+    },
+    "devDependencies": {
+        "nodemon": "^1.11.0"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon index.js"
+    },
+    "author": "andri indrawan",
+    "license": "ISC"
 }
